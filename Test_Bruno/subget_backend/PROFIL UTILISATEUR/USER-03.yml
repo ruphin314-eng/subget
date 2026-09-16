@@ -1,0 +1,25 @@
+info:
+  name: USER-03
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/users/me"
+  headers:
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  body:
+    type: json
+    data: |-
+      {
+        "nom": "Jean D. Modifié"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,25 @@
+info:
+  name: USER-02
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/users/me"
+  headers:
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  body:
+    type: json
+    data: |-
+      {
+        "motDePasse": "NouveauMdp2!"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

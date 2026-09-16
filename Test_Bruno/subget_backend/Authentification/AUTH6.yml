@@ -1,0 +1,34 @@
+info:
+  name: AUTH6
+  type: http
+  seq: 10
+
+http:
+  method: POST
+  url: "{{baseUrl}}/auth/login"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "jean.dupont@test.com",
+        "motDePasse": "NouveauMdp2!!"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const data = res.getBody();
+
+        console.log("AUTH6 RESPONSE:", data);
+
+        bru.setEnvVar("accessToken", data.accessToken);
+        bru.setEnvVar("refreshToken", data.refreshToken);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

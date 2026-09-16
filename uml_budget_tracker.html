@@ -1,0 +1,57 @@
+<div id="uml"></div>
+<script type="module">
+import mermaid from 'https://esm.sh/mermaid@11/dist/mermaid.esm.min.mjs';
+const themeMode = document.documentElement.dataset.mode;
+const dark = themeMode ? themeMode === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+await document.fonts.ready;
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: '"anthropic-sans", sans-serif',
+  themeVariables: {
+    darkMode: dark,
+    fontSize: '13px',
+    fontFamily: '"anthropic-sans", sans-serif',
+    lineColor: dark ? '#9c9a92' : '#73726c',
+    textColor: dark ? '#c2c0b6' : '#3d3d3a',
+  },
+});
+const { svg } = await mermaid.render('uml-svg', `classDiagram
+  class User {
+    +Long id
+    +String nom
+    +String email
+    +String motDePasse
+    +Role role
+    +boolean actif
+  }
+  class Depense {
+    +Long id
+    +Long userId
+    +BigDecimal montant
+    +String categorie
+    +String description
+    +LocalDate date
+  }
+  class Entree {
+    +Long id
+    +Long userId
+    +BigDecimal montant
+    +String source
+    +String description
+    +LocalDate date
+  }
+  class Role {
+    <<enumeration>>
+    CLIENT
+    ADMIN
+  }
+  User "1" --> "many" Depense : possède
+  User "1" --> "many" Entree : possède
+  User --> Role : a un`);
+document.getElementById('uml').innerHTML = svg;
+
+document.querySelectorAll('#uml svg .node rect, #uml svg .node polygon').forEach(el => {
+  if (el.tagName === 'rect') el.setAttribute('rx', '8');
+});
+</script>

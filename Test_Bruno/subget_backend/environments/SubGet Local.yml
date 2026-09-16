@@ -1,0 +1,18 @@
+name: SubGet Local
+variables:
+  - name: baseUrl
+    value: http://localhost:8080
+  - name: clientEmail
+    value: jean.dupont@test.com
+  - name: clientPassword
+    value: Motdepasse1!
+  - name: adminEmail
+    value: admin@subget.local
+  - name: adminPassword
+    value: ChangeMe123!
+  - name: adminAccessToken
+    value: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBzdWJnZXQubG9jYWwiLCJyb2xlIjoiQURNSU4iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzg4OTY5Nzk3LCJleHAiOjE3ODg5NzA2OTd9.7fvmzDi_qdLddBDUFTEbAG7QnAf3uq7yCnktlXAZ4M2jmiYJn331wiOQK0ZZNjNt
+  - name: accessToken
+    value: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqZWFuLmR1cG9udEB0ZXN0LmNvbSIsInJvbGUiOiJDTElFTlQiLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzg4OTcwMDIxLCJleHAiOjE3ODg5NzA5MjF9.TfFrXuDZb6b93QIgnHq19c-UemzMS58yaObRew2eZZt3Wo4CvaUvACkMngzmk8xn
+  - name: refreshToken
+    value: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqZWFuLmR1cG9udEB0ZXN0LmNvbSIsInJvbGUiOiJDTElFTlQiLCJ0eXBlIjoicmVmcmVzaCIsImlhdCI6MTc4ODk3MDAyMSwiZXhwIjoxNzg5NTc0ODIxfQ.aQO2ZDf0XTHZQASv0PBNBqDcELOlMmUzCFJ-1cNTmKhCBx4y_Tzau80BPPyVn7iy

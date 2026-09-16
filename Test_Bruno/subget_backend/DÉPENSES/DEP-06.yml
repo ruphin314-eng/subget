@@ -1,0 +1,29 @@
+info:
+  name: DEP-06
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{baseUrl}}/depenses"
+  headers:
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  body:
+    type: json
+    data: |-
+      {
+        "montant": 150.00,
+        "libelle": "Alimentation",
+        "description": "Test",
+        "date": "2026-09-09",
+        "userId": 9999
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

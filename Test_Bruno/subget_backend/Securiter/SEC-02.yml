@@ -1,0 +1,19 @@
+info:
+  name: SEC-02
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: "{{baseUrl}}/users/me"
+  headers:
+    - name: Authorization
+      value: Bearer token.invalide
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,19 @@
+info:
+  name: ADM-01
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: "{{baseUrl}}/admin/users"
+  headers:
+    - name: Authorization
+      value: Bearer {{adminAccessToken}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

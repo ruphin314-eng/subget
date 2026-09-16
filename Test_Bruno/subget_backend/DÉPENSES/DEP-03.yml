@@ -1,0 +1,28 @@
+info:
+  name: DEP-03
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseUrl}}/depenses"
+  headers:
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  body:
+    type: json
+    data: |-
+      {
+        "montant": 0,
+        "libelle": "Test",
+        "description": "Test",
+        "date": "2026-09-08"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

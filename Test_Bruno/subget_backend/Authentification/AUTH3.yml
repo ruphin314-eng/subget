@@ -1,0 +1,24 @@
+info:
+  name: AUTH3
+  type: http
+  seq: 12
+
+http:
+  method: POST
+  url: "{{baseUrl}}/auth/register"
+  body:
+    type: json
+    data: |-
+      {
+        "nom": "Test User",
+        "email": "weak@test.com",
+        "motDePasse": "Azerty"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

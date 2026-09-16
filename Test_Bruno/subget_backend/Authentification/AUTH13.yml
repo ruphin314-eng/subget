@@ -1,0 +1,19 @@
+info:
+  name: AUTH13
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{baseUrl}}/auth/refresh-token"
+  body:
+    type: text
+    data: token.invalide.abc123
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

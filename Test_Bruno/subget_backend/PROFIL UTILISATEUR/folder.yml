@@ -1,0 +1,7 @@
+info:
+  name: PROFIL UTILISATEUR
+  type: folder
+  seq: 3
+
+request:
+  auth: inherit

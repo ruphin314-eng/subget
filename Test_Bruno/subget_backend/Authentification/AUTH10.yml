@@ -1,0 +1,28 @@
+info:
+  name: AUTH10
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/auth/refresh-token"
+  body:
+    type: text
+    data: "{{refreshToken}}"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const data = res.getBody();
+
+        bru.setEnvVar("accessToken", data.accessToken);
+        bru.setEnvVar("refreshToken", data.refreshToken);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

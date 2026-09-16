@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    # Pas de défaut : si DB_URL/DB_USERNAME/DB_PASSWORD ne sont pas définis en
+    # variables d'environnement, le démarrage échoue plutôt que de se rabattre
+    # silencieusement sur des identifiants de dev.
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      # En prod, on ne laisse pas Hibernate modifier le schéma automatiquement.
+      # Utiliser une migration explicite (Flyway/Liquibase) ou "validate" une fois le schéma stable.
+      ddl-auto: validate
+    show-sql: false
+
+# Aucun défaut ici volontairement : sans JWT_SECRET défini, l'application refuse
+# de démarrer plutôt que de signer des tokens avec la clé de dev connue de tous.
+jwt:
+  secret: ${JWT_SECRET}
+
+# Idem : sans ces deux variables, pas de création d'admin avec un mot de passe
+# faible/connu par défaut — l'app refuse de démarrer.
+admin:
+  seed:
+    email: ${ADMIN_SEED_EMAIL}
+    password: ${ADMIN_SEED_PASSWORD}
+    nom: ${ADMIN_SEED_NOM:Super Admin}
